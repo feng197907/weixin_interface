@@ -13,5 +13,23 @@ def test_wework_data():
 
 class TestWework:
     @pytest.mark.parametrize("userid, name, moblie", test_wework_data())
-    def test_create(self,userid, name, moblie):
-        WeWork().test_create(userid, name, moblie)
+    def test_wework(self, userid, name, moblie):
+        # 添加
+        print(WeWork().test_create(userid, name, moblie))
+        # assert 'created' == WeWork().test_create(userid, name, moblie)['errmsg']
+        # 查询
+        print(WeWork().test_get_member(userid))
+        # assert name == WeWork().test_get_member(userid)['name']
+        # 更新
+        print(WeWork().test_update_member(userid,"测试修改"))
+        # assert 'updated' == WeWork().test_update_member(userid,"测试修改")['errmsg']
+
+        # 查询修改后
+        print(WeWork().test_get_member(userid))
+        # assert "测试修改" == WeWork().test_get_member(userid)['name']
+
+        # 删除
+        print(WeWork().test_delete_member(userid))
+        # assert 'deleted' == WeWork().test_delete_member(userid)['errmsg']
+
+
