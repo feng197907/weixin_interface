@@ -5,7 +5,7 @@ import random
 import requests
 import json
 import pytest
-from data.wework_data import Wework_data
+from test_data.wework_data import Wework_data
 
 
 def test_wework_data():
@@ -121,18 +121,20 @@ class TestWework:
         # 创建成员
 
         # try:
-        #     assert 'created' == self.test_create(token, userid, '测试1', '13700000007')['errmsg']
+        #     assert 'created' == self.test_create(token, userid, name, mobile)['errmsg']
         # except AssertionError as e:
-        #     print(e)
+        #     # print(e)
         #     if 'mobile existed' in e.__str__():
         #         # 提取绑定已有手机号的id
-        #         # re_userid = re.findall(":.*'$", e.__str__())
+        #         # re_userid = re.findall(":.*'$", e.__str__())[0]
         #         lin_str = e.__str__().split(':')[1]
-        #         re_userid = lin_str[:len(lin_str)-1]
-        #         print(type(re_userid))
+        #         num = len(lin_str)-1
+        #         re_userid = lin_str[:num]
+        #         # print(type(re_userid))
+        #         print(re_userid)
         #         # 删除 此成员
         #         self.test_delete_member(token, re_userid)
-        #         assert 'created' == self.test_create(token, userid, '测试1', '13700000007')['errmsg']
+        #         assert 'created' == self.test_create(token, userid, name, mobile)['errmsg']
 
         # 添加成员
         assert 'created' == self.test_create(token, userid, name, mobile)["errmsg"]
